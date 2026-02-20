@@ -68,3 +68,14 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+Компонент Counter lab1.2_app/src/Counter.js
+Функционал:
+1) Отображает число (начальное значение - 0)
+2) Кнопки Increment и Decrement
+3) Использует useState для управления состоянием
+4) Обновляет отображаемое число при нажатии на кнопки
+
+Интеграция:
+Импорт в App.js
+
