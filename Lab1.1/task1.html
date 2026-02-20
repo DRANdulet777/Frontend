@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Imperative Highlight Toggle</title>
+
+        <!-- Подключение jQuery через CDN -->
+         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+         <style>
+            .highlight {
+                background-color: yellow;
+            }
+         </style>
+    </head>
+    <body>
+        <h2>Imperative Implementation (jQuery)</h2>
+        <!-- кнопка для переключения подсветки -->
+        <button id = "togglebutton">Toggle Highlight</button> 
+
+        <!-- Параграф к которому применяется класс -->
+        <p id="TextParagraph">Этот параграф будет подсвечен при нажатии на кнопку</p>
+
+        <script>
+            // Загрузка страницы
+            $(document).ready(function() {
+                let togglebutton = $('#togglebutton'); // получение кнопки по айди
+                let TextParagraph = $('#TextParagraph'); // получение параграфа по айди
+                // обработка клика на кнопке
+                togglebutton.on("click", function() {
+                    TextParagraph.toggleClass("highlight"); // переключение класса highlight у параграфа
+                });
+            });
+        </script>
+    </body>
+</body>
+</html>
