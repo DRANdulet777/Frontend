@@ -1,9 +1,8 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
 import { Link, Routes, Route } from "react-router-dom"
 import { lazy, Suspense } from "react"
+import ErrorBoundary from './ErrorBoundary'
 
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const Settings = lazy(() => import("./pages/Settings"));
@@ -23,6 +22,16 @@ function LoadingSpinner() {
   );
 }
 
+function ErrorFallBack() {
+  return (
+    <div>
+      <h2>Something went wrong</h2>
+      <p>Failed to load this page</p>
+    </div>
+  )
+}
+
+
 export default function App() {
   return (
     <>
@@ -33,14 +42,16 @@ export default function App() {
         <Link to="/profile">Profile</Link>
       </nav>
 
-      <Suspense fallback={<LoadingSpinner />}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/settings" element={<Settings />} />
-          <Route path="/profile" element={<Profile />} />
-        </Routes>
-      </Suspense>
+      <ErrorBoundary fallback={<ErrorFallBack />}>
+        <Suspense fallback={<LoadingSpinner />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/profile" element={<Profile />} />
+          </Routes>
+        </Suspense>
+      </ErrorBoundary>
     </>
   );
 }
